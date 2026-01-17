@@ -1,9 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* MM Bank Design System - Industrial Futurist Dark Mode */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -44,7 +45,7 @@
     --gradient-primary: linear-gradient(135deg, hsl(25 100% 50%), hsl(35 100% 55%));
     --gradient-dark: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 4%));
     --gradient-glass: linear-gradient(135deg, hsla(0, 0%, 100%, 0.08), hsla(0, 0%, 100%, 0.02));
-    
+
     /* Shadows & Glows */
     --shadow-card: 0 25px 50px -12px hsla(0, 0%, 0%, 0.5);
     --glow-primary: 0 0 60px hsla(25, 100%, 50%, 0.3);
@@ -74,12 +75,18 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Space Grotesk', 'Inter', sans-serif;
   }
 }
 
 @layer components {
+
   /* Glassmorphism card */
   .glass-card {
     background: linear-gradient(135deg, hsla(0, 0%, 100%, 0.06), hsla(0, 0%, 100%, 0.02));
@@ -113,7 +120,7 @@
 
   /* Grid overlay */
   .grid-overlay {
-    background-image: 
+    background-image:
       linear-gradient(hsla(0, 0%, 100%, 0.03) 1px, transparent 1px),
       linear-gradient(90deg, hsla(0, 0%, 100%, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
@@ -168,31 +175,36 @@
 }
 
 @layer utilities {
-  /* Animations */
-  @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+  @keyframes draw-line {
+    to {
+      stroke-dashoffset: 0;
+    }
   }
 
-  @keyframes pulse-glow {
-    0%, 100% { box-shadow: 0 0 30px hsla(25, 100%, 50%, 0.3); }
-    50% { box-shadow: 0 0 60px hsla(25, 100%, 50%, 0.5); }
+  @keyframes pulse-slow {
+
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.8;
+      transform: scale(1.02);
+    }
   }
 
-  @keyframes gradient-shift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
+  @keyframes bounce-slow {
 
-  @keyframes fade-up {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
 
-  @keyframes scale-in {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
+    50% {
+      transform: translateY(-10px);
+    }
   }
 
   .animate-float {
@@ -201,6 +213,18 @@
 
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce-slow 4s ease-in-out infinite;
+  }
+
+  .animate-draw-line {
+    animation: draw-line 2s ease-out forwards;
   }
 
   .animate-gradient {
@@ -217,9 +241,23 @@
   }
 
   /* Delay utilities */
-  .delay-100 { animation-delay: 100ms; }
-  .delay-200 { animation-delay: 200ms; }
-  .delay-300 { animation-delay: 300ms; }
-  .delay-400 { animation-delay: 400ms; }
-  .delay-500 { animation-delay: 500ms; }
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .delay-500 {
+    animation-delay: 500ms;
+  }
 }

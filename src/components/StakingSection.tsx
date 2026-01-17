@@ -19,8 +19,8 @@ const StakingSection = () => {
   return (
     <section className="section-card noise-overlay relative overflow-hidden">
       <div className="absolute inset-0 grid-overlay opacity-20" />
-      
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-24">
+
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-12 md:py-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary uppercase tracking-widest text-sm font-semibold mb-4">
@@ -43,11 +43,10 @@ const StakingSection = () => {
                 <button
                   key={period.days}
                   onClick={() => setSelectedPeriod(period.days)}
-                  className={`py-4 px-3 rounded-xl font-semibold transition-all duration-300 ${
-                    selectedPeriod === period.days
+                  className={`py-4 px-3 rounded-xl font-semibold transition-all duration-300 ${selectedPeriod === period.days
                       ? "bg-primary text-primary-foreground shadow-glow"
                       : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-                  }`}
+                    }`}
                 >
                   <span className="block text-lg">{period.label}</span>
                   <span className={`text-xs ${selectedPeriod === period.days ? "text-primary-foreground/80" : "text-muted-foreground"}`}>

@@ -4,6 +4,7 @@ import SolutionSection from "@/components/SolutionSection";
 import TokenomicsSection from "@/components/TokenomicsSection";
 import StakingSection from "@/components/StakingSection";
 import TiersSection from "@/components/TiersSection";
+import logoHorizontal from "/mmbank_logo_horizontal.png";
 
 const Index = () => {
   return (
@@ -14,23 +15,23 @@ const Index = () => {
         <div className="sticky top-0 z-[1]">
           <HeroSection />
         </div>
-        
+
         <div className="sticky top-0 z-[2]">
           <ProblemSection />
         </div>
-        
+
         <div className="sticky top-0 z-[3]">
           <SolutionSection />
         </div>
-        
+
         <div className="sticky top-0 z-[4]">
           <TokenomicsSection />
         </div>
-        
+
         <div className="sticky top-0 z-[5]">
           <StakingSection />
         </div>
-        
+
         <div className="sticky top-0 z-[6]">
           <TiersSection />
         </div>
@@ -39,11 +40,10 @@ const Index = () => {
       {/* Footer */}
       <footer className="relative z-[7] bg-background border-t border-border py-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl font-bold font-display text-primary">MM</span>
-            <span className="text-2xl font-bold font-display text-foreground">BANK</span>
+          <div className="flex items-center">
+            <img src={logoHorizontal} alt="MM Bank" className="h-12 w-auto filter drop-shadow-[0_0_10px_rgba(255,109,1,0.2)]" />
           </div>
-          
+
           <div className="flex gap-8">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Docs</a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Governance</a>
@@ -51,9 +51,9 @@ const Index = () => {
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Discord</a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Twitter</a>
           </div>
-          
+
           <p className="text-muted-foreground text-sm">
-            © 2025 MM Bank. All rights reserved.
+            © 2026 MM Bank. All rights reserved.
           </p>
         </div>
       </footer>

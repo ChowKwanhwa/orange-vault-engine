@@ -8,8 +8,10 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+import { Web3Provider } from "./components/Web3Provider";
+
 const App = () => (
-  <QueryClientProvider client={queryClient}>
+  <Web3Provider>
     <TooltipProvider>
       <Toaster />
       <Sonner />
@@ -21,7 +23,7 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
+  </Web3Provider>
 );
 
 export default App;

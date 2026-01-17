@@ -16,8 +16,8 @@ const TiersSection = () => {
   return (
     <section className="section-card noise-overlay relative overflow-hidden">
       <div className="absolute inset-0 grid-overlay opacity-20" />
-      
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-24">
+
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 py-12 md:py-20">
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary uppercase tracking-widest text-sm font-semibold mb-4">
@@ -38,13 +38,12 @@ const TiersSection = () => {
             >
               <div className="flex items-center gap-5">
                 {/* Rank Badge */}
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${
-                  index === 0 
-                    ? "bg-gradient-to-br from-primary to-amber-500 shadow-glow" 
-                    : index < 3 
-                      ? "bg-primary/20 border border-primary/30" 
+                <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${index === 0
+                    ? "bg-gradient-to-br from-primary to-amber-500 shadow-glow"
+                    : index < 3
+                      ? "bg-primary/20 border border-primary/30"
                       : "bg-secondary"
-                }`}>
+                  }`}>
                   <tier.icon className={`w-7 h-7 ${index === 0 ? "text-white" : "text-primary"}`} />
                 </div>
 
@@ -55,10 +54,10 @@ const TiersSection = () => {
                     <span className="text-muted-foreground">•</span>
                     <span className="text-muted-foreground">{tier.label}</span>
                   </div>
-                  
+
                   {/* Progress Bar */}
                   <div className="relative h-2 bg-secondary rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className="absolute inset-y-0 left-0 progress-orange rounded-full transition-all duration-500"
                       style={{ width: `${tier.progress}%` }}
                     />
@@ -82,7 +81,7 @@ const TiersSection = () => {
 
         {/* CTA */}
         <p className="text-center text-muted-foreground mt-12 max-w-lg">
-          Your tier is determined by your staked FBT amount and platform activity. 
+          Your tier is determined by your staked FBT amount and platform activity.
           Higher tiers unlock exclusive yields and governance rights.
         </p>
       </div>
