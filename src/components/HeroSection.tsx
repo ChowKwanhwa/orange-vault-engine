@@ -1,18 +1,20 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Box, Diamond, Hexagon } from "lucide-react";
-import heroEngine from "@/assets/hero-engine.jpg";
-import logoHorizontal from "/mmbank_logo_horizontal.png";
+import { ArrowRight, Box, Diamond, Hexagon, Languages } from "lucide-react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import logoHorizontal from "/mmbank_logo_horizontal.png";
+import heroEngine from "@/assets/hero-engine.jpg";
+import { useLanguage } from "@/context/LanguageContext";
 
 const HeroSection = () => {
+  const { language, setLanguage, t } = useLanguage();
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({
         x: (e.clientX / window.innerWidth - 0.5) * 20,
-        y: (e.clientY / window.innerHeight - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
       });
     };
     window.addEventListener("mousemove", handleMouseMove);
@@ -20,23 +22,36 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="section-card noise-overlay relative overflow-hidden bg-background">
+    <section className="relative min-h-[110vh] flex items-center justify-center overflow-hidden bg-background">
       {/* Top Header/Nav Bar */}
       <div className="absolute top-0 left-0 right-0 z-[50] px-6 pt-0 pb-4 flex justify-between items-center pointer-events-none mt-[-1rem] md:mt-[-2rem]">
+        {/* Left: Logo */}
         <div className="flex items-center pointer-events-auto">
           <img src={logoHorizontal} alt="MM Bank" className="h-32 md:h-48 w-auto filter drop-shadow-[0_0_20px_rgba(255,109,1,0.3)]" />
         </div>
 
-        {/* Badge - Now aligned in header */}
-        <div className="hidden lg:flex pointer-events-auto">
+        {/* Center: Language Switcher & Badge */}
+        <div className="hidden lg:flex items-center gap-4 pointer-events-auto">
+          {/* Language Switcher */}
+          <button
+            onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}
+            className="glass-card px-4 py-2 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/20 transition-all flex items-center gap-2 group"
+          >
+            <Languages className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform" />
+            <span className="text-sm font-bold text-foreground">
+              {language === 'en' ? 'EN' : '中文'}
+            </span>
+          </button>
+
           <div className="glass-card px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
             <span className="text-xs md:text-sm text-primary font-bold tracking-[0.3em] uppercase">
-              Protocol V1.0 - Active
+              {t('hero.protocol_active')}
             </span>
           </div>
         </div>
 
-        <div className="glass-card rounded-xl overflow-hidden border border-primary/20 pointer-events-auto">
+        {/* Right: Connect Button */}
+        <div className="glass-card rounded-xl overflow-hidden border border-primary/20 pointer-events-auto scale-90 md:scale-100">
           <ConnectButton />
         </div>
       </div>
@@ -68,56 +83,44 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-transparent to-background/60" />
       </div>
 
-      {/* Grid Overlay */}
-      <div className="absolute inset-0 grid-overlay opacity-40 z-[2]" />
-
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
-        {/* Main Center Design with Interaction */}
-        <div
-          className="mb-12 animate-fade-up delay-100 flex flex-col items-center relative transition-transform duration-300 ease-out"
-          style={{ transform: `translate(${mousePos.x}px, ${mousePos.y}px)` }}
-        >
-          <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full -z-10 animate-pulse-slow" />
-          <h1 className="text-6xl md:text-9xl font-black font-display tracking-tighter leading-[0.85] uppercase italic">
-            <span className="block text-foreground opacity-90 drop-shadow-lg">On-Chain</span>
-            <span className="text-primary drop-shadow-[0_0_50px_rgba(255,109,1,0.6)]">
-              Cashflow
-            </span>
-          </h1>
-          <div className="h-px w-24 bg-primary/30 mt-6 hidden md:block" />
+      {/* Main Content with Parallax */}
+      <div
+        className="relative z-10 text-center max-w-5xl px-6 transition-transform duration-500 ease-out mt-12 md:mt-0"
+        style={{ transform: `translate(${mousePos.x * 0.3}px, ${mousePos.y * 0.3}px)` }}
+      >
+        <div className="inline-block mb-6 animate-fade-up">
+          <span className="text-primary font-bold tracking-[0.5em] uppercase text-xs md:text-sm bg-primary/10 px-6 py-2 rounded-full border border-primary/20 backdrop-blur-sm">
+            {t('hero.decentralized_banking')}
+          </span>
         </div>
 
-        {/* Subheadline */}
-        <p className="subheadline max-w-2xl mb-12 animate-fade-up delay-200 text-muted-foreground/80 font-medium leading-relaxed">
-          The First Decentralized Bank Engine Built for <br className="hidden md:block" />
-          <span className="text-foreground">Sustainable Yield</span> and Liquid Gold Markets.
-        </p>
+        <h1 className="headline-massive mb-8 text-foreground mix-blend-difference drop-shadow-2xl">
+          <span className="block text-primary animate-pulse-slow">{t('hero.onchain_cashflow')}</span>
+        </h1>
 
-        {/* CTA Button */}
-        <div className="animate-fade-up delay-300">
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-16 animate-fade-up delay-200">
           <Button variant="hero" size="xl" className="group relative overflow-hidden px-8 py-6 rounded-xl border border-primary/30 shadow-[0_0_20px_rgba(255,109,1,0.1)]">
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-orange-500/10 group-hover:from-primary group-hover:to-orange-500 transition-all duration-300" />
             <span className="relative z-10 flex items-center gap-3 font-bold text-lg group-hover:text-white transition-colors">
-              COMING SOON
+              {t('hero.coming_soon')}
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </span>
           </Button>
         </div>
 
-        {/* Stats Row */}
-        <div className="flex flex-wrap justify-center gap-8 md:gap-16 mt-20 animate-fade-up delay-400">
-          <div className="text-center group">
-            <p className="text-3xl md:text-4xl font-bold text-foreground font-display transition-colors group-hover:text-primary">$847M+</p>
-            <p className="text-[10px] md:text-xs text-muted-foreground mt-1 uppercase tracking-widest font-bold">Total Value Locked</p>
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 max-w-4xl mx-auto pt-12 border-t border-white/5 animate-fade-up delay-300 backdrop-blur-sm bg-black/5 rounded-3xl p-8">
+          <div className="group transition-transform hover:scale-105">
+            <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-widest mb-2">{t('hero.total_liquidity')}</p>
+            <p className="text-2xl md:text-4xl font-bold font-display text-primary">$1.4B+</p>
           </div>
-          <div className="text-center group">
-            <p className="text-3xl md:text-4xl font-bold text-primary font-display drop-shadow-[0_0_10px_rgba(255,109,1,0.3)]">24.7%</p>
-            <p className="text-[10px] md:text-xs text-muted-foreground mt-1 uppercase tracking-widest font-bold">Avg. APY</p>
+          <div className="group transition-transform hover:scale-105">
+            <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-widest mb-2">{t('hero.active_users')}</p>
+            <p className="text-2xl md:text-4xl font-bold font-display text-foreground">84.2K</p>
           </div>
-          <div className="text-center group">
-            <p className="text-3xl md:text-4xl font-bold text-foreground font-display transition-colors group-hover:text-primary">156K+</p>
-            <p className="text-[10px] md:text-xs text-muted-foreground mt-1 uppercase tracking-widest font-bold">Active Users</p>
+          <div className="hidden md:block group transition-transform hover:scale-105">
+            <p className="text-muted-foreground text-xs md:text-sm uppercase tracking-widest mb-2">{t('hero.24h_volume')}</p>
+            <p className="text-2xl md:text-4xl font-bold font-display text-foreground">$12.5M</p>
           </div>
         </div>
       </div>
@@ -125,7 +128,7 @@ const HeroSection = () => {
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 opacity-50">
         <div className="w-6 h-10 rounded-full border border-muted-foreground/30 flex justify-center">
-          <div className="w-1 h-2 bg-primary/60 rounded-full mt-2 animate-bounce-slow" />
+          <div className="w-1 h-2 bg-primary rounded-full animate-bounce mt-2" />
         </div>
       </div>
     </section>

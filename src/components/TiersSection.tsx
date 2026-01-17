@@ -1,18 +1,21 @@
 import { Crown, Star, Zap, Trophy, Gem, Shield, Award, Target, Flame } from "lucide-react";
-
-const tiers = [
-  { rank: "S9+", label: "Legendary", icon: Crown, progress: 100, rewards: "50% Fee Share", members: "12" },
-  { rank: "S8", label: "Mythic", icon: Trophy, progress: 92, rewards: "40% Fee Share", members: "47" },
-  { rank: "S7", label: "Epic", icon: Gem, progress: 84, rewards: "32% Fee Share", members: "156" },
-  { rank: "S6", label: "Diamond", icon: Star, progress: 76, rewards: "25% Fee Share", members: "423" },
-  { rank: "S5", label: "Platinum", icon: Shield, progress: 68, rewards: "20% Fee Share", members: "1.2K" },
-  { rank: "S4", label: "Gold", icon: Award, progress: 60, rewards: "15% Fee Share", members: "3.4K" },
-  { rank: "S3", label: "Silver", icon: Target, progress: 45, rewards: "10% Fee Share", members: "8.7K" },
-  { rank: "S2", label: "Bronze", icon: Flame, progress: 30, rewards: "5% Fee Share", members: "24K" },
-  { rank: "S1", label: "Starter", icon: Zap, progress: 15, rewards: "2% Fee Share", members: "118K" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const TiersSection = () => {
+  const { t } = useLanguage();
+
+  const tiers = [
+    { rank: "S9+", label: t('tiers.legendary'), icon: Crown, progress: 100, rewards: `50% ${t('tiers.fee_share')}`, members: "12" },
+    { rank: "S8", label: t('tiers.mythic'), icon: Trophy, progress: 92, rewards: `40% ${t('tiers.fee_share')}`, members: "47" },
+    { rank: "S7", label: t('tiers.epic'), icon: Gem, progress: 84, rewards: `32% ${t('tiers.fee_share')}`, members: "156" },
+    { rank: "S6", label: t('tiers.diamond'), icon: Star, progress: 76, rewards: `25% ${t('tiers.fee_share')}`, members: "423" },
+    { rank: "S5", label: t('tiers.platinum'), icon: Shield, progress: 68, rewards: `20% ${t('tiers.fee_share')}`, members: "1.2K" },
+    { rank: "S4", label: t('tiers.gold'), icon: Award, progress: 60, rewards: `15% ${t('tiers.fee_share')}`, members: "3.4K" },
+    { rank: "S3", label: t('tiers.silver'), icon: Target, progress: 45, rewards: `10% ${t('tiers.fee_share')}`, members: "8.7K" },
+    { rank: "S2", label: t('tiers.bronze'), icon: Flame, progress: 30, rewards: `5% ${t('tiers.fee_share')}`, members: "24K" },
+    { rank: "S1", label: t('tiers.starter'), icon: Zap, progress: 15, rewards: `2% ${t('tiers.fee_share')}`, members: "118K" },
+  ];
+
   return (
     <section className="section-card noise-overlay relative overflow-hidden">
       <div className="absolute inset-0 grid-overlay opacity-20" />
@@ -21,10 +24,10 @@ const TiersSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary uppercase tracking-widest text-sm font-semibold mb-4">
-            Membership Ranks
+            {t('tiers.subtitle')}
           </p>
           <h2 className="headline-large text-foreground">
-            Dynamic Tiers
+            {t('tiers.title')}
           </h2>
         </div>
 
@@ -39,10 +42,10 @@ const TiersSection = () => {
               <div className="flex items-center gap-5">
                 {/* Rank Badge */}
                 <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${index === 0
-                    ? "bg-gradient-to-br from-primary to-amber-500 shadow-glow"
-                    : index < 3
-                      ? "bg-primary/20 border border-primary/30"
-                      : "bg-secondary"
+                  ? "bg-gradient-to-br from-primary to-amber-500 shadow-glow"
+                  : index < 3
+                    ? "bg-primary/20 border border-primary/30"
+                    : "bg-secondary"
                   }`}>
                   <tier.icon className={`w-7 h-7 ${index === 0 ? "text-white" : "text-primary"}`} />
                 </div>
@@ -67,7 +70,7 @@ const TiersSection = () => {
                 {/* Rewards */}
                 <div className="text-right flex-shrink-0 hidden sm:block">
                   <p className="text-primary font-semibold">{tier.rewards}</p>
-                  <p className="text-sm text-muted-foreground">{tier.members} members</p>
+                  <p className="text-sm text-muted-foreground">{tier.members} {t('tiers.members')}</p>
                 </div>
 
                 {/* Mobile Rewards */}
@@ -81,8 +84,7 @@ const TiersSection = () => {
 
         {/* CTA */}
         <p className="text-center text-muted-foreground mt-12 max-w-lg">
-          Your tier is determined by your staked FBT amount and platform activity.
-          Higher tiers unlock exclusive yields and governance rights.
+          {t('tiers.disclaimer')}
         </p>
       </div>
     </section>

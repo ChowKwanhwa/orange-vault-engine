@@ -1,17 +1,19 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Wallet, ArrowRight, Shield, Clock } from "lucide-react";
-
-const stakingPeriods = [
-  { days: 1, apy: 12.4, label: "1 Day" },
-  { days: 15, apy: 18.7, label: "15 Days" },
-  { days: 30, apy: 24.2, label: "30 Days" },
-  { days: 60, apy: 32.8, label: "60 Days" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 const StakingSection = () => {
+  const { t } = useLanguage();
   const [selectedPeriod, setSelectedPeriod] = useState(30);
   const [amount, setAmount] = useState("1000");
+
+  const stakingPeriods = [
+    { days: 1, apy: 12.4, label: `1 ${t('staking.day')}` },
+    { days: 15, apy: 18.7, label: `15 ${t('staking.days')}` },
+    { days: 30, apy: 24.2, label: `30 ${t('staking.days')}` },
+    { days: 60, apy: 32.8, label: `60 ${t('staking.days')}` },
+  ];
 
   const currentApy = stakingPeriods.find(p => p.days === selectedPeriod)?.apy || 24.2;
   const estimatedReward = (parseFloat(amount || "0") * currentApy / 100 * selectedPeriod / 365).toFixed(2);
@@ -24,10 +26,10 @@ const StakingSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary uppercase tracking-widest text-sm font-semibold mb-4">
-            Yield Engine
+            {t('staking.subtitle')}
           </p>
           <h2 className="headline-large text-foreground">
-            Stake & Earn
+            {t('staking.title')}
           </h2>
         </div>
 
@@ -36,16 +38,16 @@ const StakingSection = () => {
           {/* Period Selection */}
           <div className="mb-8">
             <label className="text-sm text-muted-foreground uppercase tracking-wider mb-4 block">
-              Lock Period
+              {t('staking.lock_period')}
             </label>
-            <div className="grid grid-cols-4 gap-3">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {stakingPeriods.map((period) => (
                 <button
                   key={period.days}
                   onClick={() => setSelectedPeriod(period.days)}
                   className={`py-4 px-3 rounded-xl font-semibold transition-all duration-300 ${selectedPeriod === period.days
-                      ? "bg-primary text-primary-foreground shadow-glow"
-                      : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
+                    ? "bg-primary text-primary-foreground shadow-glow"
+                    : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
                     }`}
                 >
                   <span className="block text-lg">{period.label}</span>
@@ -60,7 +62,7 @@ const StakingSection = () => {
           {/* Amount Input */}
           <div className="mb-8">
             <label className="text-sm text-muted-foreground uppercase tracking-wider mb-4 block">
-              Stake Amount
+              {t('staking.stake_amount')}
             </label>
             <div className="relative">
               <input
@@ -80,11 +82,11 @@ const StakingSection = () => {
           {/* Reward Preview */}
           <div className="bg-secondary/30 rounded-2xl p-6 mb-8">
             <div className="flex justify-between items-center mb-4">
-              <span className="text-muted-foreground">Estimated Reward</span>
+              <span className="text-muted-foreground">{t('staking.est_reward')}</span>
               <span className="text-2xl font-bold text-primary">${estimatedReward}</span>
             </div>
             <div className="flex justify-between items-center text-sm">
-              <span className="text-muted-foreground">Current APY</span>
+              <span className="text-muted-foreground">{t('staking.current_apy')}</span>
               <span className="text-foreground font-semibold">{currentApy}%</span>
             </div>
           </div>
@@ -93,18 +95,18 @@ const StakingSection = () => {
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Shield className="w-4 h-4 text-primary" />
-              <span>Audited Smart Contracts</span>
+              <span>{t('staking.audited')}</span>
             </div>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <Clock className="w-4 h-4 text-primary" />
-              <span>Instant Unstake Available</span>
+              <span>{t('staking.unstake')}</span>
             </div>
           </div>
 
           {/* CTA Button */}
           <Button variant="hero" size="xl" className="w-full group">
             <Wallet className="w-5 h-5" />
-            Connect Wallet to Stake
+            {t('staking.cta')}
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>

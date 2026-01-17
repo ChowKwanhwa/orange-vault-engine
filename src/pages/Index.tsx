@@ -5,8 +5,10 @@ import TokenomicsSection from "@/components/TokenomicsSection";
 import StakingSection from "@/components/StakingSection";
 import TiersSection from "@/components/TiersSection";
 import logoHorizontal from "/mmbank_logo_horizontal.png";
+import { LanguageProvider, useLanguage } from "@/context/LanguageContext";
 
-const Index = () => {
+const IndexContent = () => {
+  const { t } = useLanguage();
   return (
     <main className="relative bg-background">
       {/* Sticky Stacking Sections */}
@@ -45,19 +47,27 @@ const Index = () => {
           </div>
 
           <div className="flex gap-8">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Docs</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Governance</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Audit</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Discord</a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">Twitter</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t('footer.docs')}</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t('footer.gov')}</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t('footer.audit')}</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t('footer.discord')}</a>
+            <a href="#" className="text-muted-foreground hover:text-primary transition-colors text-sm">{t('footer.twitter')}</a>
           </div>
 
           <p className="text-muted-foreground text-sm">
-            © 2026 MM Bank. All rights reserved.
+            © 2026 MM Bank. {t('footer.rights')}
           </p>
         </div>
       </footer>
     </main>
+  );
+};
+
+const Index = () => {
+  return (
+    <LanguageProvider>
+      <IndexContent />
+    </LanguageProvider>
   );
 };
 

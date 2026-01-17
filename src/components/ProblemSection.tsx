@@ -1,24 +1,32 @@
-import { Infinity, Waves, Zap } from "lucide-react";
-
-const problems = [
-  {
-    icon: Infinity,
-    title: "Sustainability",
-    description: "Traditional DeFi yields are unsustainable, driven by token inflation rather than real value creation.",
-  },
-  {
-    icon: Waves,
-    title: "Liquidity",
-    description: "Fragmented liquidity across chains creates inefficient capital allocation and reduced returns.",
-  },
-  {
-    icon: Zap,
-    title: "Volatility",
-    description: "Extreme market volatility erodes principal, making yield farming a high-risk endeavor.",
-  },
-];
+import { ShieldAlert, Droplets, LineChart } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 const ProblemSection = () => {
+  const { t } = useLanguage();
+  const problems = [
+    {
+      icon: ShieldAlert,
+      title: t('problem.sustainability'),
+      description: t('problem.sustainability_desc'),
+      color: "text-red-400",
+      glow: "group-hover:shadow-[0_0_30px_rgba(248,113,113,0.3)]"
+    },
+    {
+      icon: Droplets,
+      title: t('problem.liquidity'),
+      description: t('problem.liquidity_desc'),
+      color: "text-blue-400",
+      glow: "group-hover:shadow-[0_0_30px_rgba(96,165,250,0.3)]"
+    },
+    {
+      icon: LineChart,
+      title: t('problem.volatility'),
+      description: t('problem.volatility_desc'),
+      color: "text-amber-400",
+      glow: "group-hover:shadow-[0_0_30px_rgba(251,191,36,0.3)]"
+    }
+  ];
+
   return (
     <section className="section-card noise-overlay relative overflow-hidden">
       <div className="absolute inset-0 grid-overlay opacity-20" />
@@ -27,10 +35,10 @@ const ProblemSection = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary uppercase tracking-widest text-sm font-semibold mb-4">
-            The Challenge
+            {t('problem.challenge')}
           </p>
           <h2 className="headline-large text-foreground">
-            The Problem
+            {t('problem.title')}
           </h2>
         </div>
 
