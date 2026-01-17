@@ -22,7 +22,7 @@ const TokenomicsSection = () => {
         {/* Token Cards Grid */}
         <div className="grid md:grid-cols-2 gap-8 w-full max-w-6xl">
           {/* FBT Token Card */}
-          <div className="glass-card p-8 rounded-3xl border border-primary/20 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-primary/20 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden">
             <div className="flex items-center justify-between mb-6 relative z-10">
               <div>
                 <h3 className="text-3xl font-bold font-display text-primary group-hover:scale-105 transition-transform origin-left">FBT</h3>
@@ -83,7 +83,7 @@ const TokenomicsSection = () => {
           </div>
 
           {/* USDT Vault Card */}
-          <div className="glass-card p-8 rounded-3xl border border-primary/20 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden">
+          <div className="glass-card p-6 md:p-8 rounded-3xl border border-primary/20 hover:border-primary/40 transition-all duration-500 group relative overflow-hidden">
             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
               <DollarSign className="w-32 h-32 text-primary animate-bounce-slow" />
             </div>

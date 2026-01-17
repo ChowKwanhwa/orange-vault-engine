@@ -41,13 +41,13 @@ const TiersSection = () => {
             >
               <div className="flex items-center gap-5">
                 {/* Rank Badge */}
-                <div className={`w-16 h-16 rounded-xl flex items-center justify-center flex-shrink-0 ${index === 0
+                <div className={`w-12 h-12 md:w-16 md:h-16 rounded-lg md:rounded-xl flex items-center justify-center flex-shrink-0 ${index === 0
                   ? "bg-gradient-to-br from-primary to-amber-500 shadow-glow"
                   : index < 3
                     ? "bg-primary/20 border border-primary/30"
                     : "bg-secondary"
                   }`}>
-                  <tier.icon className={`w-7 h-7 ${index === 0 ? "text-white" : "text-primary"}`} />
+                  <tier.icon className={`w-5 h-5 md:w-7 md:h-7 ${index === 0 ? "text-white" : "text-primary"}`} />
                 </div>
 
                 {/* Info */}

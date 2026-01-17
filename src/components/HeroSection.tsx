@@ -24,26 +24,26 @@ const HeroSection = () => {
   return (
     <section className="relative min-h-[110vh] flex items-center justify-center overflow-hidden bg-background">
       {/* Top Header/Nav Bar */}
-      <div className="absolute top-0 left-0 right-0 z-[50] px-6 pt-0 pb-4 flex justify-between items-center pointer-events-none mt-[-1rem] md:mt-[-2rem]">
+      <div className="absolute top-0 left-0 right-0 z-[50] px-4 md:px-6 pt-0 pb-4 flex justify-between items-center pointer-events-none mt-[-1rem] md:mt-[-2rem]">
         {/* Left: Logo */}
         <div className="flex items-center pointer-events-auto">
-          <img src={logoHorizontal} alt="MM Bank" className="h-32 md:h-48 w-auto filter drop-shadow-[0_0_20px_rgba(255,109,1,0.3)]" />
+          <img src={logoHorizontal} alt="MM Bank" className="h-20 md:h-48 w-auto filter drop-shadow-[0_0_20px_rgba(255,109,1,0.3)]" />
         </div>
 
         {/* Center: Language Switcher & Badge */}
-        <div className="hidden lg:flex items-center gap-4 pointer-events-auto">
+        <div className="flex items-center gap-2 md:gap-4 pointer-events-auto">
           {/* Language Switcher */}
           <button
             onClick={() => setLanguage(language === 'en' ? 'zh' : 'en')}
-            className="glass-card px-4 py-2 rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/20 transition-all flex items-center gap-2 group"
+            className="glass-card px-2 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl border border-primary/20 bg-primary/5 hover:bg-primary/20 transition-all flex items-center gap-1.5 md:gap-2 group"
           >
-            <Languages className="w-4 h-4 text-primary group-hover:rotate-12 transition-transform" />
-            <span className="text-sm font-bold text-foreground">
+            <Languages className="w-3.5 h-3.5 md:w-4 md:h-4 text-primary group-hover:rotate-12 transition-transform" />
+            <span className="text-[10px] md:text-sm font-bold text-foreground">
               {language === 'en' ? 'EN' : '中文'}
             </span>
           </button>
 
-          <div className="glass-card px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
+          <div className="hidden sm:flex glass-card px-4 py-2 rounded-full border border-primary/20 bg-primary/5">
             <span className="text-xs md:text-sm text-primary font-bold tracking-[0.3em] uppercase">
               {t('hero.protocol_active')}
             </span>
@@ -51,7 +51,7 @@ const HeroSection = () => {
         </div>
 
         {/* Right: Connect Button */}
-        <div className="glass-card rounded-xl overflow-hidden border border-primary/20 pointer-events-auto scale-90 md:scale-100">
+        <div className="glass-card rounded-lg md:rounded-xl overflow-hidden border border-primary/20 pointer-events-auto scale-75 sm:scale-90 md:scale-100 origin-right">
           <ConnectButton />
         </div>
       </div>

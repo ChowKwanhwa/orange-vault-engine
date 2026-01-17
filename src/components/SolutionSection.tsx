@@ -29,10 +29,10 @@ const SolutionSection = () => {
               <div className="absolute inset-0 rounded-full border border-primary/50 scale-150 animate-pulse opacity-10" />
 
               {/* Main hub */}
-              <div className="glass-card w-48 h-48 md:w-64 md:h-64 rounded-full flex flex-col items-center justify-center border-2 border-primary/40 animate-pulse-glow relative z-10 shadow-[0_0_50px_rgba(255,109,1,0.2)]">
-                <Building2 className="w-12 h-12 md:w-16 md:h-16 text-primary mb-3 animate-bounce-slow" />
-                <span className="text-xl md:text-2xl font-bold font-display uppercase tracking-wider">{t('solution.banking')}</span>
-                <span className="text-sm md:text-base text-muted-foreground">{t('solution.core')}</span>
+              <div className="glass-card w-40 h-40 md:w-64 md:h-64 rounded-full flex flex-col items-center justify-center border-2 border-primary/40 animate-pulse-glow relative z-10 shadow-[0_0_50px_rgba(255,109,1,0.2)]">
+                <Building2 className="w-10 h-10 md:w-16 md:h-16 text-primary mb-2 md:mb-3 animate-bounce-slow" />
+                <span className="text-lg md:text-2xl font-bold font-display uppercase tracking-wider">{t('solution.banking')}</span>
+                <span className="text-xs md:text-base text-muted-foreground">{t('solution.core')}</span>
               </div>
             </div>
           </div>
@@ -62,40 +62,40 @@ const SolutionSection = () => {
 
           {/* Protocol Nodes - Adjusted positions for mobile */}
           <div className="absolute top-0 left-1/2 -translate-x-1/2 z-20 group cursor-pointer animate-fade-up">
-            <div className="glass-card p-4 md:p-6 rounded-2xl border border-primary/30 flex items-center gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
-              <Gamepad2 className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            <div className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl border border-primary/30 flex items-center gap-3 md:gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
+              <Gamepad2 className="w-6 h-6 md:w-10 md:h-10 text-primary" />
               <div>
-                <p className="font-bold text-lg md:text-xl">{t('solution.gamefi')}</p>
-                <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{t('solution.node_gamefi')}</p>
+                <p className="font-bold text-base md:text-xl">{t('solution.gamefi')}</p>
+                <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-widest">{t('solution.node_gamefi')}</p>
               </div>
             </div>
           </div>
 
           <div className="absolute right-0 md:right-4 top-1/2 -translate-y-1/2 z-20 group cursor-pointer animate-fade-up delay-100">
-            <div className="glass-card p-4 md:p-6 rounded-2xl border border-primary/30 flex items-center gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
-              <Landmark className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            <div className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl border border-primary/30 flex items-center gap-3 md:gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
+              <Landmark className="w-6 h-6 md:w-10 md:h-10 text-primary" />
               <div>
-                <p className="font-bold text-lg md:text-xl">{t('solution.defi')}</p>
-                <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{t('solution.node_defi')}</p>
+                <p className="font-bold text-base md:text-xl">{t('solution.defi')}</p>
+                <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-widest">{t('solution.node_defi')}</p>
               </div>
             </div>
           </div>
 
           <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-20 group cursor-pointer animate-fade-up delay-200">
-            <div className="glass-card p-4 md:p-6 rounded-2xl border border-primary/30 flex items-center gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
-              <BrainCircuit className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            <div className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl border border-primary/30 flex items-center gap-3 md:gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
+              <BrainCircuit className="w-6 h-6 md:w-10 md:h-10 text-primary" />
               <div>
-                <p className="font-bold text-lg md:text-xl">{t('solution.ai')}</p>
+                <p className="font-bold text-base md:text-xl">{t('solution.ai')}</p>
               </div>
             </div>
           </div>
 
           <div className="absolute left-0 md:left-4 top-1/2 -translate-y-1/2 z-20 group cursor-pointer animate-fade-up delay-300">
-            <div className="glass-card p-4 md:p-6 rounded-2xl border border-primary/30 flex items-center gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
-              <RwaIcon className="w-8 h-8 md:w-10 md:h-10 text-primary" />
+            <div className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl border border-primary/30 flex items-center gap-3 md:gap-4 transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_30px_rgba(255,109,1,0.2)]">
+              <RwaIcon className="w-6 h-6 md:w-10 md:h-10 text-primary" />
               <div>
-                <p className="font-bold text-lg md:text-xl">{t('solution.rwa')}</p>
-                <p className="text-[10px] md:text-xs text-muted-foreground uppercase tracking-widest">{t('solution.node_rwa')}</p>
+                <p className="font-bold text-base md:text-xl">{t('solution.rwa')}</p>
+                <p className="text-[8px] md:text-xs text-muted-foreground uppercase tracking-widest">{t('solution.node_rwa')}</p>
               </div>
             </div>
           </div>

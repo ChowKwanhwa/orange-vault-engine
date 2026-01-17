@@ -53,14 +53,14 @@ const ProblemSection = () => {
               <div className="absolute inset-0 bg-primary/2 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
               {/* Icon Container with Heartbeat Pulse */}
-              <div className="relative w-24 h-24 mb-10 items-center justify-center flex">
+              <div className="relative w-16 h-16 md:w-24 md:h-24 mb-6 md:mb-10 items-center justify-center flex">
                 {/* Background Glows */}
                 <div className="absolute inset-0 bg-primary/20 blur-3xl rounded-full scale-125 animate-pulse-slow opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
                 <div className="absolute inset-0 bg-primary/10 blur-xl rounded-full animate-ping opacity-0 group-hover:opacity-20 transition-opacity duration-700" />
 
-                <div className="relative w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary to-background border border-white/10 flex items-center justify-center shadow-2xl group-hover:border-primary/50 transition-all duration-500 overflow-hidden group-hover:scale-105">
+                <div className="relative w-14 h-14 md:w-20 md:h-20 rounded-xl md:rounded-2xl bg-gradient-to-br from-secondary to-background border border-white/10 flex items-center justify-center shadow-2xl group-hover:border-primary/50 transition-all duration-500 overflow-hidden group-hover:scale-105">
                   <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
-                  <problem.icon className="w-10 h-10 text-primary group-hover:scale-110 transition-transform duration-700 drop-shadow-[0_0_12px_rgba(255,109,1,0.6)] animate-pulse-slow" strokeWidth={1.5} />
+                  <problem.icon className="w-7 h-7 md:w-10 md:h-10 text-primary group-hover:scale-110 transition-transform duration-700 drop-shadow-[0_0_12px_rgba(255,109,1,0.6)] animate-pulse-slow" strokeWidth={1.5} />
                 </div>
               </div>
 
