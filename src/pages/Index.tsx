@@ -41,7 +41,7 @@ const Index = () => {
       <footer className="relative z-[7] bg-background border-t border-border py-12 px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center">
-            <img src={logoHorizontal} alt="MM Bank" className="h-12 w-auto filter drop-shadow-[0_0_10px_rgba(255,109,1,0.2)]" />
+            <img src={logoHorizontal} alt="MM Bank" className="h-24 w-auto filter drop-shadow-[0_0_10px_rgba(255,109,1,0.2)]" />
           </div>
 
           <div className="flex gap-8">
